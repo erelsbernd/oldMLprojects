@@ -1,0 +1,10 @@
+library(e1071)
+library(klaR)
+hh = read.table("/Users/erelsbernd/Documents/IowaState/IowaStateSpring2017/cs474/hw2/HW2.txt", header = T, sep = " ")
+labels <- factor(hh[,3])
+test = cbind(0,1)
+text = as.matrix(test)
+#hh = as.matrix(hh)
+m <- NaiveBayes(labels ~ feature1 + feature2, hh,usekernel = FALSE)
+pred<-predict(m,test, type = "raw")
+pred
